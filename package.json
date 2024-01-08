@@ -15,12 +15,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "turbo run type-check",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "clean": "rimraf node_modules"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "rimraf": "^5.0.5",
     "turbo": "^1.11.2"
   },
   "devDependencies": {
