@@ -9,6 +9,9 @@
       "cache": false,
       "outputs": ["dist/**"]
     },
-    "lint": {}
+    "lint": {},
+    "clean": {
+      "cache": false
+    }
   }
 }

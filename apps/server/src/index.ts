@@ -25,13 +25,16 @@ async function validate() {
 }
 
 await validate();
-
 const app = express();
 const port = 4000;
 
 app.use(cors({ origin: process.env.WEB_CLIENT_URL, credentials: true }));
 app.use(cookieParser());
 
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
+});
 app.use("/api", ApiRouter);
 
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {

@@ -23,15 +23,15 @@ importers:
 
   apps/client:
     dependencies:
-      axios:
-        specifier: ^1.6.5
-        version: 1.6.5
       react:
         specifier: ^18.2.0
         version: 18.2.0
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      rimraf:
+        specifier: ^5.0.5
+        version: 5.0.5
     devDependencies:
       "@pandacss/dev":
         specifier: ^0.24.2
@@ -63,6 +63,9 @@ importers:
       postcss:
         specifier: ^8.4.33
         version: 8.4.33
+      schema:
+        specifier: workspace:*
+        version: link:../../packages/schema
       typescript:
         specifier: ^5.2.2
         version: 5.3.3
@@ -72,6 +75,9 @@ importers:
 
   apps/server:
     dependencies:
+      "@types/spotify-api":
+        specifier: ^0.0.25
+        version: 0.0.25
       axios:
         specifier: ^1.6.5
         version: 1.6.5
@@ -90,6 +96,9 @@ importers:
       express:
         specifier: 5.0.0-beta.1
         version: 5.0.0-beta.1
+      rimraf:
+        specifier: ^5.0.5
+        version: 5.0.5
       winston:
         specifier: ^3.11.0
         version: 3.11.0
@@ -115,9 +124,6 @@ importers:
       "@types/node":
         specifier: ^20.10.0
         version: 20.10.5
-      "@types/spotify-web-api-node":
-        specifier: ^5.0.11
-        version: 5.0.11
       "@typescript-eslint/eslint-plugin":
         specifier: ^6.12.0
         version: 6.16.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)(typescript@5.3.3)
@@ -133,6 +139,52 @@ importers:
       eslint-config-prettier:
         specifier: ^9.0.0
         version: 9.1.0(eslint@8.56.0)
+      prettier:
+        specifier: ^3.1.0
+        version: 3.1.1
+      schema:
+        specifier: workspace:*
+        version: link:../../packages/schema
+      tsup:
+        specifier: ^8.0.1
+        version: 8.0.1(typescript@5.3.3)
+      typescript:
+        specifier: ^5.3.2
+        version: 5.3.3
+      vitest:
+        specifier: ^0.34.6
+        version: 0.34.6(@vitest/ui@0.34.7)
+
+  packages/schema:
+    dependencies:
+      zod:
+        specifier: ^3.22.4
+        version: 3.22.4
+    devDependencies:
+      "@types/node":
+        specifier: ^20.10.0
+        version: 20.10.5
+      "@typescript-eslint/eslint-plugin":
+        specifier: ^6.12.0
+        version: 6.16.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)(typescript@5.3.3)
+      "@typescript-eslint/parser":
+        specifier: ^6.12.0
+        version: 6.16.0(eslint@8.56.0)(typescript@5.3.3)
+      "@vitest/ui":
+        specifier: ^0.34.6
+        version: 0.34.7(vitest@0.34.6)
+      eslint:
+        specifier: ^8.54.0
+        version: 8.56.0
+      eslint-config-prettier:
+        specifier: ^9.0.0
+        version: 9.1.0(eslint@8.56.0)
+      husky:
+        specifier: ^8.0.0
+        version: 8.0.3
+      lint-staged:
+        specifier: ^15.1.0
+        version: 15.2.0
       prettier:
         specifier: ^3.1.0
         version: 3.1.1
@@ -1759,16 +1811,7 @@ packages:
       {
         integrity: sha512-okhoy0U9fPWtwqCfbDyW8VxamhqvXE0gXIVeMOh5HcvEFQvWW2X0VsvdiX/OyiGQpZbZiOJXIGrbnIPfK0AIpA==,
       }
-    dev: true
-
-  /@types/spotify-web-api-node@5.0.11:
-    resolution:
-      {
-        integrity: sha512-RS3IkSqH9geC61e8qd+Oy7giOTtiY7ywm0Z4bu5uYuc7XuOcLfDwKjmle85IbpTEdazeCgmIbo8nMLg7WDVvgw==,
-      }
-    dependencies:
-      "@types/spotify-api": 0.0.25
-    dev: true
+    dev: false
 
   /@types/triple-beam@1.3.5:
     resolution:

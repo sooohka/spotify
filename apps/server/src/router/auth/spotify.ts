@@ -1,4 +1,10 @@
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "@/common/cookie";
+import {
+  ACCESS_TOKEN_KEY,
+  REFRESH_TOKEN_KEY,
+  USER_INFO_KEY,
+} from "@/common/cookie";
+import { logger } from "@/modules/logger";
+import { UserService } from "@/service/user";
 import axios from "axios";
 import express, { Router } from "express";
 
@@ -14,7 +20,7 @@ type TokenResponse = {
 SpotifyAuthRouter.get("/", (req, res) => {
   const params = new URLSearchParams({
     response_type: "code",
-    client_id: "ed6d4b75963044a0aadbc0527fa426a3", // process.env.SPOTIFY_CLIENT_ID,
+    client_id: process.env.SPOTIFY_CLIENT_ID,
     scope: "user-read-private user-read-email",
     redirect_uri: process.env.SPOTIFY_REDIRECT_URI,
   });
@@ -61,5 +67,17 @@ SpotifyAuthRouter.get("/callback", async (req, res) => {
     path: "/",
     httpOnly: true,
   });
+
+  const userService = new UserService();
+  const { body: user } = await userService.getMe(data.access_token);
+
+  logger.info(user);
+
+  res.cookie(USER_INFO_KEY, user.id, {
+    maxAge: data.expires_in * 1000,
+    path: "/",
+    httpOnly: true,
+  });
+
   res.redirect(process.env.WEB_CLIENT_URL);
 });

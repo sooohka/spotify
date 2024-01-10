@@ -1,0 +1,21 @@
+{
+  "folders": [
+    {
+      "name": "client",
+      "path": "../apps/client"
+    },
+    {
+      "name": "server",
+      "path": "../apps/server"
+    },
+    {
+      "name": "schema",
+      "path": "../packages/schema"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "node_modules": true
+    }
+  }
+}

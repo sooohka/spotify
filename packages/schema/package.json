@@ -1,0 +1,36 @@
+{
+  "name": "schema",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "dev": "tsup --watch --onSuccess \"node dist/index.mjs\"",
+    "build": "tsup",
+    "test": "vitest",
+    "test:report": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "type-check": "tsc",
+    "lint": "eslint . --fix --ext .ts  --ignore-path .gitignore",
+    "format": "prettier --write . --ignore-path .gitignore"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "@vitest/ui": "^0.34.6",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.2",
+    "vitest": "^0.34.6"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  },
+  "license": "MIT"
+}
