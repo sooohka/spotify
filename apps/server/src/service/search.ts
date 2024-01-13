@@ -9,7 +9,7 @@ export class SearchService {
     }
     this.instance = this;
   }
-  //@ts-ignore
+
   public async search(acToken: string, params: string) {
     const client = new SpotifyHttpClient();
     const res = await client.execute<SpotifyApi.SearchResponse>(

@@ -9,7 +9,7 @@ export class UserService {
     }
     this.instance = this;
   }
-  //@ts-ignore
+
   public async getMe(acToken: string) {
     const client = new SpotifyHttpClient();
     const res = await client.execute<SpotifyApi.CurrentUsersProfileResponse>(

@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^0.24.2",
+    "@types/kakao-js-sdk": "^1.39.4",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
